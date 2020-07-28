@@ -8,6 +8,12 @@
     "start": "node src/index.js",
     "test": "echo 'teste'"
   },
+  "lint-staged": {
+    "*.{js}": [
+      "eslint --ext .js,.jsx",
+      "git add"
+    ]
+  },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
     "dotenv": "^8.2.0",
