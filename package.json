@@ -8,9 +8,15 @@
     "start": "node src/index.js",
     "test": "echo 'teste'"
   },
+  "lint-staged": {
+    "*.{js}": [
+      "eslint --ext .js",
+      "git add"
+    ]
+  },
   "husky": {
     "hooks": {
-      "pre-commit": ""
+      "pre-commit": "lint-staged"
     }
   },
   "dependencies": {
