@@ -10,7 +10,7 @@
   },
   "lint-staged": {
     "*.{js}": [
-      "eslint --ext .js,.jsx",
+      "eslint --ext .js",
       "git add"
     ]
   },
