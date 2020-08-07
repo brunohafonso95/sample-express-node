@@ -6,7 +6,7 @@ const routes = Router();
 
 /**
  * GET /api/v1/users
- * @tags Users
+ * @tag Users
  * @summary Returns a list of users.
  * @description returns a list of users.
  * @response 200 - A JSON array of users
@@ -15,7 +15,7 @@ const routes = Router();
 routes.get('/users', usersController.getAllUsers);
 /**
  * POST /api/v1/users
- * @tags Users
+ * @tag Users
  * @summary Create a new user.
  * @description returns the new user created.
  * @bodyContent {User} application/json
