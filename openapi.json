@@ -1,0 +1,73 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "SAMPLE API EXPRESS",
+    "version": "1.0.0",
+    "host": "localhost",
+    "basePath": "/api/v1",
+    "schemes": ["http"]
+  },
+  "paths": {
+    "/api/v1/users": {
+      "get": {
+        "summary": "Returns a list of users.",
+        "description": "returns a list of users.",
+        "responses": {
+          "200": {
+            "description": "A JSON array of users",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/User" }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a new user.",
+        "description": "returns the new user created.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/User" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "A JSON user object",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/User" }
+              }
+            }
+          },
+          "409": {
+            "description": "A JSON error object",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/CommonError" }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "properties": { "name": { "type": "string" } },
+        "required": ["name"]
+      },
+      "CommonError": {
+        "properties": { "message": { "type": "string" } },
+        "required": ["message"]
+      }
+    }
+  }
+}
