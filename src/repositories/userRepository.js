@@ -28,6 +28,9 @@ module.exports = {
     },
     async deleteUserByName(name) {
         const userIndex = usersModel.users.findIndex(user => user.name === name);
+        if(userIndex < 0) {
+            return;
+        }
         const userDelete = usersModel.users.splice(userIndex, 1);
 
         return new Promise((resolve) => {
@@ -38,6 +41,9 @@ module.exports = {
     },
     async updateUserByName(name, payload) {
         const userIndex = usersModel.users.findIndex(user => user.name === name);
+        if(userIndex < 0) {
+            return;
+        }
         usersModel.users[userIndex] = payload;
 
         return new Promise((resolve) => {

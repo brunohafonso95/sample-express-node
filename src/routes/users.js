@@ -5,10 +5,10 @@ const usersController = require('../controllers/userController');
 const routes = Router();
 
 routes.get('/users', usersController.getAllUsers);
-routes.get('/users/:name', usersController.getUser);
+routes.get('/users/:name', usersController.getUserByName);
 routes.post('/users', usersController.createUser);
-routes.delete('/users/:name', usersController.deleteUser);
-routes.patch('/users/:name', usersController.updateUser);
+routes.delete('/users/:name', usersController.deleteUserByName);
+routes.patch('/users/:name', usersController.updateUserByName);
 
 // GET - listar dados
 // POST - criação de dados
