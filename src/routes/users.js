@@ -4,8 +4,28 @@ const usersController = require('../controllers/userController');
 
 const routes = Router();
 
+/**
+ * GET /api/v1/users
+ * @tag Users
+ * @summary Returns a list of users.
+ * @description returns a list of users.
+ * @response 200 - A JSON array of users
+ * @responseContent {User[]} 200.application/json
+ */
 routes.get('/users', usersController.getAllUsers);
 routes.get('/users/:name', usersController.getUserByName);
+/**
+ * POST /api/v1/users
+ * @tag Users
+ * @summary Create a new user.
+ * @description returns the new user created.
+ * @bodyContent {User} application/json
+ * @bodyRequired
+ * @response 201 - A JSON user object
+ * @responseContent {User} 201.application/json
+ * @response 409 - A JSON error object
+ * @responseContent {CommonError} 409.application/json
+ */
 routes.post('/users', usersController.createUser);
 routes.delete('/users/:name', usersController.deleteUserByName);
 routes.patch('/users/:name', usersController.updateUserByName);
