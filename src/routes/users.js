@@ -13,6 +13,7 @@ const routes = Router();
  * @responseContent {User[]} 200.application/json
  */
 routes.get('/users', usersController.getAllUsers);
+routes.get('/users/:name', usersController.getUserByName);
 /**
  * POST /api/v1/users
  * @tag Users
@@ -26,6 +27,8 @@ routes.get('/users', usersController.getAllUsers);
  * @responseContent {CommonError} 409.application/json
  */
 routes.post('/users', usersController.createUser);
+routes.delete('/users/:name', usersController.deleteUserByName);
+routes.patch('/users/:name', usersController.updateUserByName);
 
 // GET - listar dados
 // POST - criação de dados
