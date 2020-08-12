@@ -10,21 +10,28 @@ const {
 } = require('../services/userService');
 
 module.exports = {
+     /**
+     * método do controller listar todos os usuários 
+     * @function getAllUsers
+     * @param {import('express').Request} _req objeto request do express
+     * @param {import('express').Response} res objeto responde do express 
+     */
     async getAllUsers(req, res) {
-        // req - requisição
-        // res - resposta
-        
-        // Promise
-        // resolved
-        // pending
-        // rejected
         const { users } = await getAllUsers();
         res.json([...users]);
     },
+  
     async getUserByName(req, res) {
         const user = await getUserByName(req.params.name);
         res.json(user);
     },
+    
+    /**
+     * método do controller responsável por criar um novo usuário
+     * @function createUser
+     * @param {import('express').Request} req objeto request do express
+     * @param {import('express').Response} res objeto responde do express 
+     */
     async createUser(req, res) {
         const newUser = await createUser(req.body);
         res.status(httpStatus.CREATED).json(newUser);
@@ -38,9 +45,5 @@ module.exports = {
         res.json(user);
     }
 };
-
-// callback - tratar o assincronismo
-
-// promise - tratar o assincronismo
 
 
