@@ -1,4 +1,5 @@
 const express = require("express");
+const helmet = require("helmet");
 require("express-async-errors");
 const openapi = require("openapi-comment-parser");
 const swaggerUi = require("swagger-ui-express");
@@ -10,6 +11,7 @@ const apiDocsConfig = require("./config/openapirc");
 
 const spec = openapi(apiDocsConfig);
 const app = express();
+app.use(helmet());
 
 /**
  * middlewares

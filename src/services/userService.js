@@ -1,8 +1,7 @@
 const httpStatus = require('http-status');
 
-const userRepository = require('../repositories/userRepository');
 const HttpError = require('../errors/HttpError');
-const { updateUserByName, getUserByName, deleteUserByName } = require('../repositories/userRepository');
+const { userRepository, updateUserByName, getUserByName, deleteUserByName } = require('../repositories/userRepository');
 
 
 /**
