@@ -5,8 +5,7 @@ const {
     createUser,
     deleteUserByName,
     updateUserByName,
-    getUserByName,
-    getAllUsers
+    getUserByName
 } = require('../services/userService');
 
 module.exports = {
@@ -17,7 +16,7 @@ module.exports = {
     * @param {import('express').Response} res objeto responde do express 
     */
     async getAllUsers(_req, res) {
-        const { users } = await getAllUsers();
+        const { users } = await usersRepository.getUsersFromDB();
         res.json([...users]);
     },
 
@@ -59,6 +58,7 @@ module.exports = {
     * @param {import('express').Response} res objeto do response do express
     */
     async updateUserByName(req, res) {
+        console.log(req.body, "hahaha")
         const user = await updateUserByName(req.params.name, req.body);
         res.json(user);
     }
