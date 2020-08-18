@@ -58,7 +58,6 @@ module.exports = {
     * @param {import('express').Response} res objeto do response do express
     */
     async updateUserByName(req, res) {
-        console.log(req.body, "hahaha")
         const user = await updateUserByName(req.params.name, req.body);
         res.json(user);
     }
