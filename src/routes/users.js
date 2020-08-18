@@ -13,12 +13,24 @@ const routes = Router();
  * @responseContent {User[]} 200.application/json
  */
 routes.get('/users', usersController.getAllUsers);
+
+/**
+ * GET /api/v1/users/{name}
+ * @tag Users
+ * @summary Returns a single user.
+ * @pathParam {string} name
+ * @description Returns a single user.
+ * @response 200 - A JSON array of users
+ * @responseContent {User[]} 200.application/json
+ * @response 404 - A JSON error array
+ * @responseContent {CommonError} 404.application/json
+ */
 routes.get('/users/:name', usersController.getUserByName);
 /**
  * POST /api/v1/users
  * @tag Users
  * @summary Create a new user.
- * @description returns the new user created.
+ * @description Returns the new user created.
  * @bodyContent {User} application/json
  * @bodyRequired
  * @response 201 - A JSON user object
@@ -27,8 +39,32 @@ routes.get('/users/:name', usersController.getUserByName);
  * @responseContent {CommonError} 409.application/json
  */
 routes.post('/users', usersController.createUser);
-routes.delete('/users/:name', usersController.deleteUserByName);
+/**
+ * PATCH /api/v1/users/{name}
+ * @tag Users
+ * @summary Updates a user
+ * @pathParam {string} name
+ * @description Returns the updated user
+ * @bodyContent {User} application/json
+ * @bodyRequired
+ * @response 200 - A JSON array of users
+ * @responseContent {User} 200.application/json
+ * @response 404 - A JSON error array
+ * @responseContent {CommonError} 404.application/json
+ */
 routes.patch('/users/:name', usersController.updateUserByName);
+
+/**
+ * DELETE /api/v1/users/{name}
+ * @tag Users
+ * @summary Delete a user
+ * @pathParam {string} name
+ * @description Returns the deleted user
+ * @response 204 - No Content
+ * @response 404 - A JSON error array
+ * @responseContent {CommonError} 404.application/json
+ */
+routes.delete('/users/:name', usersController.deleteUserByName);
 
 // GET - listar dados
 // POST - criação de dados
