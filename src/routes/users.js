@@ -18,7 +18,7 @@ routes.get('/users', usersController.getAllUsers);
  * GET /api/v1/users/{name}
  * @tag Users
  * @summary Returns a single user.
- * @pathParam {string} name 
+ * @pathParam {string} name
  * @description Returns a single user.
  * @response 200 - A JSON array of users
  * @responseContent {User[]} 200.application/json
@@ -43,7 +43,7 @@ routes.post('/users', usersController.createUser);
  * PATCH /api/v1/users/{name}
  * @tag Users
  * @summary Updates a user
- * @pathParam {string} name 
+ * @pathParam {string} name
  * @description Returns the updated user
  * @bodyContent {User} application/json
  * @bodyRequired
@@ -56,9 +56,9 @@ routes.patch('/users/:name', usersController.updateUserByName);
 
 /**
  * DELETE /api/v1/users/{name}
- * @tag User
+ * @tag Users
  * @summary Delete a user
- * @pathParam {string} name 
+ * @pathParam {string} name
  * @description Returns the deleted user
  * @response 204 - No Content
  * @response 404 - A JSON error array
