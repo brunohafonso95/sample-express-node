@@ -45,7 +45,7 @@ routes.post('/users', usersController.createUser);
  * @summary Updates a user
  * @pathParam {string} name 
  * @description Returns the updated user
- * @bodyContent {User} appication/json
+ * @bodyContent {User} application/json
  * @bodyRequired
  * @response 200 - A JSON array of users
  * @responseContent {User} 200.application/json
