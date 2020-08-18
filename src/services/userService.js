@@ -79,9 +79,9 @@ module.exports = {
         if(!alreadyExists) {
             throw new HttpError('não é possivel atualizar, pois o usuário não existe na base de dados', httpStatus.NOT_FOUND);
         }
+
         await userRepository.updateUserByName(name, payload);
         return payload;
-
     }
 
 }
