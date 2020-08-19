@@ -10,16 +10,16 @@
     "test": "jest",
     "docs": "jsdoc -c jsdoc.config.js"
   },
-  "lint-staged": {
-    "*.{js}": [
-      "eslint --ext .js",
-      "git add"
-    ]
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --ext .js",
+      "git add"
+    ]
   },
   "dependencies": {
     "@hapi/joi": "^17.1.1",
